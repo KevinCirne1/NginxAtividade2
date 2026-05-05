@@ -27,15 +27,16 @@ services:
       - .:/apps
     networks:
       - rede_teste
+
 Passo 2: Entendendo a Comunicação
 O container ab_tester se comunica com o container web através da rede interna do Docker.
 
-O alvo do teste será: http://web/
+O alvo do teste será: http://web/ e não o local host, pois o localhost aponta para a máquina host e queremos que aponte para o container
 
 Passo 3: Executando o Teste de Carga
 Para disparar o teste com 1000 requisições totais e uma concorrência de 10 usuários, execute o comando abaixo no seu terminal (com os containers já rodando):
 
-Bash
+
 docker exec -it ab_tester ab -n 1000 -c 10 http://web/
 
 Passo 4: Interpretando as Métricas Principais
